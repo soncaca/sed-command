@@ -31,8 +31,46 @@ sed 's:/usr/bin:/usr/local:'
 
 `$ sed -i 's/text/replace/' file`
 
+4) Thay thế tất cả xuất hiện của mẫu
 
+Nếu chúng ta sử dụng các cú pháp đã đề cập ở trên, sed sẽ thay thế sự xuất hiện đầu tiên của mẫu (pattern) trong mỗi dòng, ví dụ:
 
+Giả sử bạn có input file:
+```sh
+one two three, one two three
+four three two one
+one hundred
+```
+bạn sử dụng lệnh
+
+` sed 's/one/ONE/' <file `
+
+Bạn được output
+```sh
+ONE two three, one two three
+four three two ONE
+ONE hundred
+```
+Nếu chúng ta muốn thay thế tất cả xuất hiện của mẫu trong văn bản, chúng ta cần thêm tham số g vào cuối như sau:
+
+`$  sed 's/one/ONE/g' <file ``
+
+tham số g sẽ thay thế tất cả các dòng có one thành ONE .
+
+Tuy nhiên, đôi khi chúng ta không muốn thay thế tất cả xuất hiện của mẫu, mà chỉ muốn thay thế từ xuất hiện thứ N của mẫu cho đến cuối văn bản. Để làm việc này, chúng ta có thể sử dụng dạng /Ng như sau:
+
+`$ echo 1111 | sed 's/1/2/2g' `
+--> 122
+` $ echo 1111 | sed 's/1/2/3g' `
+---> 1122
+
+Nếu chúng ta chỉ muốn thay thế xuất hiện thứ N của mẫu trong văn bản, sử dụng dạng /N như sau:
+
+`$ echo 1111 | sed 's/1/2/2' `
+--> 1211
+
+`$ echo 1111 | sed 's/1/2/3' `
+--> 1131
 
 
 
