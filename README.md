@@ -73,6 +73,12 @@ Nếu chúng ta chỉ muốn thay thế xuất hiện thứ N của mẫu trong 
 --> 1131
 
 
+5) Xóa các dòng trống
+
+Xóa các dòng trống là 1 kỹ thuật đơn giản với việc sử dụng sed. Các khoảng trống có thể được đối chiếu với biểu thức chính quy ^$:
+
+` $ sed '/^$/d' file `
+
 
 
 
