@@ -7,3 +7,36 @@ Ban đầu tôi khi được giao về tìm hiểu tôi nghĩ nó là một ti�
 
 Nhưng rôi tôi nhận ra là nó có thế mạnh của riêng nó nhất là khi ta chỉ sử dụng giao diện dòng lệnh và một vài tính năng mà các trình chỉnh sửa văn bản không có.  Thôi không lan man nữa, cùng đi vào tìm hiểu các thê mạnh đó nào:
 
+1) s (substitution)
+
+lệnh substitute: s. Lệnh substitute có tác dụng thay đổi toàn bộ nội dung của một biểu thức thành một biểu thức mới
+
+cú pháp: $ sed  's/pattern/replace_string/' file   hoặc $ cat file | sed  's/pattern/replace_string/'
+
+trong đó là pattern là  biểu thức mẫu để tìm kiếm trong input nếu có sẽ được thay thế bởi biểu thức mới. Trong 1 văn bản, chuỗi cần thay thế (pattern) có thể xuất hiện từ 0 đến nhiều lần, mỗi lần như vậy được gọi là 1 xuất hiện của chuỗi cần thay thế.
+
+2) Ký tự slash (/) tương đương như một dấu phân cách (delimiter)
+
+Ký tự (/) sau lệnh s có vai trò như một ký tự phân cách. Bạn không nhất thiết phải sử dụng slash(/) mà thay vào đó có thể sử dụng bất cứ ký tự đặc biệt nào mà bạn muốn. Khi ta muốn thay đổi 1 đoạn nào đó mà lại có slash(/) trong đó,ví dụ: /usr/bin thành /usr/local chẳng hạn --  bạn có thể sử dụng baskslash (\) để chỉ rõ ra ký tự slash (/) trong trường hợp này không có vai trò là ký tự phân cách của câu lệnh nào cả. Nhưng tôi khuyên bạn không nên dùng kiểu này vì nó khá là đau mắt, tôi đề nghị 1 vài kiểu dễ nhìn hơn -- ví dụ:
+
+sed 's_/usr/bin_/usr/local_'
+
+hoặc
+
+sed 's:/usr/bin:/usr/local:'
+
+3) Lưu các thay đổi vào tập tin
+
+Để lưu các thay đổi trực tiếp vào 1 file ta sử dụng tùy chọn -i :
+
+`$ sed -i 's/text/replace/' file`
+
+
+
+
+
+
+
+
+
+
